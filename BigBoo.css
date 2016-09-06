@@ -9,8 +9,13 @@
 }
 
 #larger {
-  cursor: url(images/boosmall2.gif) 25 15, pointer;
+  cursor: url(images/boosmall10.gif) 25 15, pointer;
   width: 20%;
   height: 50px;
   background-color: blue;
+}
+
+.bananas {
+  width:70px;
+  border: 1px solid red;
 }
