@@ -12,11 +12,28 @@ $('.bananas').mouseenter(function(){
 
 })
 
+function makeBanana(){
+  var height = Math.random()*1000
+   $('#container').append('<div class="bananas" style="top:' + height + '"px></div>')
 
- $('#container').append('<div class="banana"></div>')
+  }
+
+
+ var banana = $('.bananas');
+
+function moveBanana(image){
+  setInterval(moveIt(image), 500)
+  setInterval(console.log('hello'))
+}
+
+function moveIt(){
+  var currentLeft = parseInt(banana.css('left'));
+  var newLeft = currentLeft + 1;
+  banana.css('left', newLeft);
+}
 
 
 
-
-
+setInterval(makeBanana, 10);
+setInterval(moveIt, 10);
 })
