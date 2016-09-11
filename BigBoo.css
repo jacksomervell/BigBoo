@@ -1,5 +1,5 @@
 #container {
-  cursor: url(images/boosmall.gif) 25 15, pointer;
+ /* cursor: url(images/boosmall.gif) 25 15, pointer;*/
   width: 50%;
   height:500px;
   background-image: url(images/hauntedhousebackground.jpg);
@@ -10,11 +10,13 @@
   position: relative;
 }
 
-#larger {
-  cursor: url(images/boosmall10.gif) 25 15, pointer;
-  width: 20%;
-  height: 50px;
-  background-color: blue;
+.boo {
+   width:40px;
+  height:40px;
+  background-image: url(images/boosmall2.gif);
+  background-size: 110%;
+  position: absolute;
+  float: left;
 }
 
 .bananas {

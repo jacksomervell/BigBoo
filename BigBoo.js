@@ -92,7 +92,7 @@ var bottomWidth = Math.random()*100;
    $('.bananas').mouseenter(function(){
   size = size+1
   score = score+1
-  $('#container').css('cursor', 'url(images/boosmall10.gif) 25 15, pointer');
+  // $('#container').css('cursor', 'url(images/boosmall10.gif) 35 105, pointer');
   $(this).css('display', 'none');
   console.log(size);
 
@@ -207,6 +207,13 @@ function moveMush() {
 
 setInterval(makeBanana, 2000);
 setInterval(moveBanana, 5);
-setInterval(moveMush, 20);
+setInterval(moveMush, 10);
 
 })
+
+$(document).on('mousemove', function(e){
+    $('.boo').css({
+       left:  e.pageX,
+       top:   e.pageY
+    });
+});
