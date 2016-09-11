@@ -36,6 +36,16 @@ function makeBanana(){
    $('#container').append('<div class="bananas top-banana" style="left:' + topWidth + '%; top:-50px"></div>');
  }
 
+ //make bottom to top banana:
+
+var bottomWidth = Math.random()*100;
+  bottomWidth = Math.round(bottomWidth);
+  var yesOrNo = Math.random()
+
+  if (yesOrNo > 0.2){
+   $('#container').append('<div class="bananas bottom-banana" style="left:' + bottomWidth + '%; bottom:-50px"></div>');
+ }
+
  //make left-to-right mushroom
 
   var leftHeight = Math.random()*100;
@@ -56,7 +66,7 @@ function makeBanana(){
    $('#container').append('<div class="mushroom right-mushroom" style="top:' + rightHeight + '%; right:-50px"></div>');
  }
 
- //when a banana is clicked:
+ //when any banana is hovered:
    $('.bananas').mouseenter(function(){
   size = size+1
   score = score+1
@@ -102,6 +112,18 @@ function moveBanana(){
   banana.css('top', newTop);
 
   if (currentTop > 950){
+    banana.remove();
+  }
+
+  })
+
+   $('.bottom-banana').each(function(index){
+    var banana = $(this);
+  var currentBottom = parseInt(banana.css('bottom'));
+  var newBottom = currentBottom + 1;
+  banana.css('bottom', newBottom);
+
+  if (currentBottom > 950){
     banana.remove();
   }
 
