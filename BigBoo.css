@@ -23,7 +23,14 @@
   background-image: url(images/bananas.png);
   background-size: 110%;
   position: absolute;
-  left: 10px;
+}
+
+.left-banana {
+  left: 0px;
+}
+
+.right-banana {
+  right: 0px;
 }
 
 .fish {

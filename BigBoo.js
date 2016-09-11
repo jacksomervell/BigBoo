@@ -6,7 +6,21 @@ var score = 0
 function makeBanana(){
   var height = Math.random()*100;
   height = Math.round(height);
-   $('#container').append('<div class="bananas" style="top:' + height + '%; left:-50px"></div>');
+  var yesOrNo = Math.random()
+
+ if (yesOrNo > 0.2){
+  //make left to right banana
+   $('#container').append('<div class="bananas left-banana" style="top:' + height + '%; left:-50px"></div>');
+ }
+   //make right to left banana
+
+   var rightHeight = Math.random()*100;
+  rightHeight = Math.round(rightHeight);
+  var yesOrNo = Math.random()
+
+  if (yesOrNo > 0.2){
+   $('#container').append('<div class="bananas right-banana" style="top:' + rightHeight + '%; right:-50px"></div>');
+ }
 
    $('.bananas').mouseenter(function(){
   size = size+1
@@ -19,9 +33,8 @@ function makeBanana(){
 
 }
 
-
 function moveBanana(){
-  $('.bananas').each(function(index){
+  $('.left-banana').each(function(index){
     var banana = $(this);
   var currentLeft = parseInt(banana.css('left'));
   var newLeft = currentLeft + 1;
@@ -32,10 +45,22 @@ function moveBanana(){
   }
 
   })
+
+  $('.right-banana').each(function(index){
+    var banana = $(this);
+  var currentRight = parseInt(banana.css('right'));
+  var newRight = currentRight + 1;
+  banana.css('right', newRight);
+
+  if (currentRight > 950){
+    banana.remove();
+  }
+
+  })
 }
 
 
-setInterval(makeBanana, 500);
+setInterval(makeBanana, 1000);
 setInterval(moveBanana, 5);
 
 })
