@@ -8,16 +8,16 @@
   background-size: 120%;
   overflow: hidden;
   position: relative;
+  cursor: none;
 }
 
 .boo {
    width:40px;
   height:40px;
   background-image: url(images/boosmall2.gif);
-  background-size: 110%;
+  background-size: 100%;
   position: absolute;
-  float: left;
-}
+cursor:none;}
 
 .bananas {
   width:40px;

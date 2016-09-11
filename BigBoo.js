@@ -209,11 +209,10 @@ setInterval(makeBanana, 2000);
 setInterval(moveBanana, 5);
 setInterval(moveMush, 10);
 
-})
-
 $(document).on('mousemove', function(e){
-    $('.boo').css({
-       left:  e.pageX,
-       top:   e.pageY
+    $('.boo').offset({left: e.pageX -15, top: e.pageY -15});
+
     });
+
 });
+
