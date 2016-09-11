@@ -3,7 +3,11 @@ $(document).ready(function(){
 var size = 0
 var score = 0
 
+//this function makes everything:
+//yesorNo is the probability it will appear
+
 function makeBanana(){
+
   var height = Math.random()*100;
   height = Math.round(height);
   var yesOrNo = Math.random()
@@ -14,7 +18,7 @@ function makeBanana(){
  }
    //make right to left banana
 
-   var rightHeight = Math.random()*100;
+  var rightHeight = Math.random()*100;
   rightHeight = Math.round(rightHeight);
   var yesOrNo = Math.random()
 
@@ -22,6 +26,37 @@ function makeBanana(){
    $('#container').append('<div class="bananas right-banana" style="top:' + rightHeight + '%; right:-50px"></div>');
  }
 
+ //make top to bottom banana
+
+ var topWidth = Math.random()*100;
+  topWidth = Math.round(topWidth);
+  var yesOrNo = Math.random()
+
+  if (yesOrNo > 0.2){
+   $('#container').append('<div class="bananas top-banana" style="left:' + topWidth + '%; top:-50px"></div>');
+ }
+
+ //make left-to-right mushroom
+
+  var leftHeight = Math.random()*100;
+  leftHeight = Math.round(leftHeight);
+  var yesOrNo = Math.random()
+
+  if (yesOrNo > 0.7){
+   $('#container').append('<div class="mushroom left-mushroom" style="top:' + leftHeight + '%; left:-50px"></div>');
+ }
+
+//make right-to-left mushroom
+
+  var rightHeight = Math.random()*100;
+  rightHeight = Math.round(rightHeight);
+  var yesOrNo = Math.random()
+
+  if (yesOrNo > 0.7){
+   $('#container').append('<div class="mushroom right-mushroom" style="top:' + rightHeight + '%; right:-50px"></div>');
+ }
+
+ //when a banana is clicked:
    $('.bananas').mouseenter(function(){
   size = size+1
   score = score+1
@@ -32,6 +67,8 @@ function makeBanana(){
   })
 
 }
+
+//this moves all bananas!
 
 function moveBanana(){
   $('.left-banana').each(function(index){
@@ -57,10 +94,51 @@ function moveBanana(){
   }
 
   })
+
+  $('.top-banana').each(function(index){
+    var banana = $(this);
+  var currentTop = parseInt(banana.css('top'));
+  var newTop = currentTop + 1;
+  banana.css('top', newTop);
+
+  if (currentTop > 950){
+    banana.remove();
+  }
+
+  })
+}
+
+//this moves all mushrooms!
+
+function moveMush() {
+    $('.left-mushroom').each(function(index){
+    var mushroom = $(this);
+  var currentLeft = parseInt(mushroom.css('left'));
+  var newLeft = currentLeft + 1;
+  mushroom.css('left', newLeft);
+
+  if (currentLeft > 950){
+    mushroom.remove();
+  }
+
+  })
+
+  $('.right-mushroom').each(function(index){
+    var mushroom = $(this);
+  var currentRight = parseInt(mushroom.css('right'));
+  var newRight = currentRight + 1;
+  mushroom.css('right', newRight);
+
+  if (currentRight > 950){
+    mushroom.remove();
+  }
+
+  })
 }
 
 
-setInterval(makeBanana, 1000);
+setInterval(makeBanana, 2000);
 setInterval(moveBanana, 5);
+setInterval(moveMush, 20);
 
 })

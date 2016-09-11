@@ -33,9 +33,14 @@
   right: 0px;
 }
 
-.fish {
-  width: 20px;
-  height: 20px;
-  background-color: red;
-  ;
+.top-banana {
+  top:0px;
+}
+
+.mushroom {
+  width: 45px;
+  height: 45px;
+  background-image: url(images/poisonmushy.png);
+  background-size:100%;
+  position: absolute;
 }
