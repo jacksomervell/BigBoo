@@ -1,7 +1,10 @@
-$(document).ready(function(){
-
 var size = 0
 var score = 0
+var gameOver = false
+
+
+$(document).ready(function(){
+
 
 //this function makes everything:
 //yesorNo is the probability it will appear
@@ -88,14 +91,23 @@ var bottomWidth = Math.random()*100;
 
 
 
- //when any banana is hovered:
+ //when any banana is touched:
    $('.bananas').mouseenter(function(){
   size = size+1
   score = score+1
-  // $('#container').css('cursor', 'url(images/boosmall10.gif) 35 105, pointer');
   $(this).css('display', 'none');
-  console.log(size);
+  })
 
+ //when any mushroom is touched
+   $('.mushroom').mouseenter(function(){
+  $(this).css('display', 'none');
+  $('#container').append('<div class = "game-over"></div>')
+  $('.bananas').remove();
+  $('.mushroom').remove();
+  clearInterval(makingInterval);
+  clearInterval(bananaMover);
+  clearInterval(mushroomMover);
+  
   })
 
 }
@@ -204,11 +216,16 @@ function moveMush() {
   })
 }
 
+if (gameOver === false){
+var makingInterval = setInterval(makeBanana, 2000);
+var bananaMover = setInterval(moveBanana, 5);
+var mushroomMover = setInterval(moveMush, 10);
+}
 
-setInterval(makeBanana, 2000);
-setInterval(moveBanana, 5);
-setInterval(moveMush, 10);
+if (gameOver === true){
+}
 
+//this makes boo the mouse:
 $(document).on('mousemove', function(e){
     $('.boo').offset({left: e.pageX -15, top: e.pageY -15});
 

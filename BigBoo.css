@@ -50,3 +50,9 @@ cursor:none;}
   background-size:100%;
   position: absolute;
 }
+
+.game-over {
+  width: 100%;
+  height: 100%;
+  background-color: blue;
+}
