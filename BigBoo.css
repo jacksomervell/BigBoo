@@ -11,10 +11,65 @@
   cursor: none;
 }
 
-.boo {
+.boo1 {
+  display: none;
    width:40px;
   height:40px;
   background-image: url(images/boosmall2.gif);
+  background-size: 100%;
+  position: absolute;
+cursor:none;}
+
+.boo2 {
+  display: none;
+   width:50px;
+  height:50px;
+  background-image: url(images/boosmall3.gif);
+  background-size: 100%;
+  position: absolute;
+cursor:none;}
+
+.boo3 {
+  display: none;
+   width:55px;
+  height:55px;
+  background-image: url(images/boosmall.gif);
+  background-size: 100%;
+  position: absolute;
+cursor:none;}
+
+.boo4 {
+  display: none;
+   width:60px;
+  height:60px;
+  background-image: url(images/boosmall10.gif);
+  background-size: 100%;
+  position: absolute;
+cursor:none;}
+
+.boo5 {
+  display: none;
+   width:65px;
+  height:65px;
+  background-image: url(images/boosmall6.gif);
+  background-size: 100%;
+  position: absolute;
+cursor:none;}
+
+.boo6 {
+  display: none;
+   width:70px;
+  height:70px;
+  background-image: url(images/boosmall7.gif);
+  background-size: 100%;
+  position: absolute;
+cursor:none;}
+
+.boo7 {
+  display: none;
+   width:75px;
+  height:75px;
+  background-image: url(images/boosmall8.gif);
   background-size: 100%;
   position: absolute;
 cursor:none;}

@@ -107,7 +107,6 @@ var bottomWidth = Math.random()*100;
   clearInterval(makingInterval);
   clearInterval(bananaMover);
   clearInterval(mushroomMover);
-  
   })
 
 }
@@ -227,7 +226,29 @@ if (gameOver === true){
 
 //this makes boo the mouse:
 $(document).on('mousemove', function(e){
-    $('.boo').offset({left: e.pageX -15, top: e.pageY -15});
+
+    if (score < 5){
+      $('.boo1').show();
+    $('.boo1').offset({left: e.pageX -15, top: e.pageY -15});
+  }
+ 
+  else if (score < 10){
+ 
+    $('.boo1').remove();
+    $('.boo2').show();
+    $('.boo2').offset({left: e.pageX -15, top: e.pageY -15}); 
+  }
+  else if (score < 15){
+    $('.boo2').remove();
+    $('.boo3').show();
+    $('.boo3').offset({left: e.pageX -15, top: e.pageY -15}); 
+  }
+  else {
+     $('.boo3').remove();
+    $('.boo4').show();
+    $('.boo4').offset({left: e.pageX -15, top: e.pageY -15}); 
+  }
+
 
     });
 
