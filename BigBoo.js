@@ -219,7 +219,7 @@ function moveMush() {
 if (gameOver === false){
 var makingInterval = setInterval(makeBanana, 2000);
 var bananaMover = setInterval(moveBanana, 5);
-var mushroomMover = setInterval(moveMush, 10);
+var mushroomMover = setInterval(moveMush, 5);
 }
 
 if (gameOver === true){

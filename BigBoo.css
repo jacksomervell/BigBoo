@@ -9,6 +9,8 @@
   overflow: hidden;
   position: relative;
   cursor: none;
+   -webkit-filter: grayscale(50%); /* Chrome, Safari, Opera */
+    filter: grayscale(50%);
 }
 
 .boo1 {
