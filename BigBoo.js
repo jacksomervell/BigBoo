@@ -55,7 +55,7 @@ var bottomWidth = Math.random()*100;
   leftHeight = Math.round(leftHeight);
   var yesOrNo = Math.random()
 
-  if (yesOrNo > 0.7){
+  if (yesOrNo > 0.5){
    $('#container').append('<div class="mushroom left-mushroom" style="top:' + leftHeight + '%; left:-50px"></div>');
  }
 
@@ -65,7 +65,7 @@ var bottomWidth = Math.random()*100;
   rightHeight = Math.round(rightHeight);
   var yesOrNo = Math.random()
 
-  if (yesOrNo > 0.7){
+  if (yesOrNo > 0.5){
    $('#container').append('<div class="mushroom right-mushroom" style="top:' + rightHeight + '%; right:-50px"></div>');
  }
 
@@ -75,7 +75,7 @@ var bottomWidth = Math.random()*100;
   topWidth = Math.round(topWidth);
   var yesOrNo = Math.random()
 
-  if (yesOrNo > 0.7){
+  if (yesOrNo > 0.5){
    $('#container').append('<div class="mushroom top-mushroom" style="left:' + topWidth + '%; top:-50px"></div>');
  }
 
@@ -85,7 +85,7 @@ var bottomWidth = Math.random()*100;
   bottomWidth = Math.round(bottomWidth);
   var yesOrNo = Math.random()
 
-  if (yesOrNo > 0.7){
+  if (yesOrNo > 0.5){
    $('#container').append('<div class="mushroom bottom-mushroom" style="left:' + bottomWidth + '%; bottom:-50px"></div>');
  }
 
@@ -96,6 +96,7 @@ var bottomWidth = Math.random()*100;
   size = size+1
   score = score+1
   $(this).css('display', 'none');
+  $('#score').text('Score: ' + score)
   })
 
  //when any mushroom is touched
