@@ -2,13 +2,13 @@ var size = 0
 var score = 0
 var gameOver = false
 
-
 $(document).ready(function(){
+
 
   //when banana is touched:
 
   function bananaCollide(){
-    var collide = $('.boo').collision('.bananas');
+    var collide = $('.collider').collision('.bananas');
     if (collide[0]){
       collide.remove()
     size = size+1
@@ -19,7 +19,7 @@ $(document).ready(function(){
 
 //when mushroom is touched
   function mushroomCollide(){
-    var mushcollide = $('.boo').collision('.mushroom');
+    var mushcollide = $('.collider').collision('.mushroom');
     if(mushcollide[0]){ 
       console.log('boo')
   // $('#container').append('<div class = "game-over"></div>')
@@ -238,26 +238,26 @@ $(document).on('mousemove', function(e){
    
 
     if (score < 5){
-      $('.boo1').show();
-    $('.boo1').offset({left: e.pageX -15, top: e.pageY -15});
+      $('.col1').show();
+    $('.col1').offset({left: e.pageX, top: e.pageY -25});
 
   }
  
   else if (score < 10){
  
-    $('.boo1').remove();
-    $('.boo2').show();
-    $('.boo2').offset({left: e.pageX -15, top: e.pageY -15}); 
+    $('.col1').remove();
+    $('.col2').show();
+    $('.col2').offset({left: e.pageX -15, top: e.pageY -15}); 
   }
   else if (score < 15){
-    $('.boo2').remove();
-    $('.boo3').show();
-    $('.boo3').offset({left: e.pageX -15, top: e.pageY -15}); 
+    $('.col2').remove();
+    $('.col3').show();
+    $('.col3').offset({left: e.pageX -15, top: e.pageY -15}); 
   }
   else {
-     $('.boo3').remove();
-    $('.boo4').show();
-    $('.boo4').offset({left: e.pageX -15, top: e.pageY -15}); 
+     $('.col3').remove();
+    $('.col4').show();
+    $('.col4').offset({left: e.pageX -15, top: e.pageY -15}); 
   }
 
 
