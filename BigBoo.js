@@ -1,6 +1,15 @@
+
+
+
 var size = 0
 var score = 0
 var gameOver = false
+var makingInterval
+ var makingInterval 
+      var bananaMover 
+      var mushroomMover
+      var colliderBanana 
+      var colliderMushroom
 
 $(document).ready(function(){
 
@@ -12,8 +21,16 @@ $(document).ready(function(){
     if (collide[0]){
       collide.remove()
     size = size+1
-    score = score+1
+    score = score+100
     $('#score').text('Score: ' + score)
+    if (score === 1500){
+      rampUp()
+    }
+
+    if (score ===3000){
+      secondRamp()
+    }
+
     }
   }
 
@@ -74,15 +91,19 @@ $(document).ready(function(){
      $('#container').append('<div class="bananas bottom-banana" style="left:' + bottomWidth + '%; bottom:-50px"></div>');
    }
 
+}
+function makeMushroom(){
+
  //make left-to-right mushroom
 
     var leftHeight = Math.random()*100;
     leftHeight = Math.round(leftHeight);
     var yesOrNo = Math.random()
 
-    if (yesOrNo > 0.5){
+    if (yesOrNo > 0.6){
      $('#container').append('<div class="mushroom left-mushroom" style="top:' + leftHeight + '%; left:-50px"></div>');
    }
+
 
 //make right-to-left mushroom
 
@@ -90,7 +111,7 @@ $(document).ready(function(){
     rightHeight = Math.round(rightHeight);
     var yesOrNo = Math.random()
 
-    if (yesOrNo > 0.5){
+    if (yesOrNo > 0.6){
      $('#container').append('<div class="mushroom right-mushroom" style="top:' + rightHeight + '%; right:-50px"></div>');
    }
 
@@ -100,7 +121,7 @@ $(document).ready(function(){
   topWidth = Math.round(topWidth);
   var yesOrNo = Math.random()
 
-  if (yesOrNo > 0.5){
+  if (yesOrNo > 0.6){
    $('#container').append('<div class="mushroom top-mushroom" style="left:' + topWidth + '%; top:-50px"></div>');
  }
 
@@ -110,12 +131,13 @@ $(document).ready(function(){
   bottomWidth = Math.round(bottomWidth);
   var yesOrNo = Math.random()
 
-  if (yesOrNo > 0.5){
+  if (yesOrNo > 0.6){
    $('#container').append('<div class="mushroom bottom-mushroom" style="left:' + bottomWidth + '%; bottom:-50px"></div>');
  }
 
 
-}
+  }
+
 
 //this moves all bananas!
 
@@ -221,35 +243,69 @@ function moveMush() {
   })
 }
 
-if (gameOver === false){
-var makingInterval = setInterval(makeBanana, 2000);
-var bananaMover = setInterval(moveBanana, 5);
-var mushroomMover = setInterval(moveMush, 5);
-var colliderBanana = setInterval(bananaCollide, 1);
-var colliderMushroom = setInterval(mushroomCollide, 1);
+//sets intervals for everything
+
+if (gameOver === false) {
+  startGame()
 }
 
-if (gameOver === true){
+
+function startGame(){
+
+      makingBanana = setInterval(makeBanana, 2000);
+      makingMushroom = setInterval(makeMushroom, 3000);
+      bananaMover = setInterval(moveBanana, 5);
+      mushroomMover = setInterval(moveMush, 10);
+      colliderBanana = setInterval(bananaCollide, 1);
+      colliderMushroom = setInterval(mushroomCollide, 1);
+      }
+
+
+function rampUp() {
+  
+    clearInterval(makingMushroom);
+    clearInterval(bananaMover);
+    clearInterval(mushroomMover);
+    makingMushroom = setInterval(makeMushroom, 900);
+    bananaMover = setInterval(moveBanana, 5);
+    mushroomMover = setInterval(moveMush, 1);
+    console.log('boom')
+    }
+
+function secondRamp(){
+    clearInterval(bananaMover);
+    clearInterval(mushroomMover);
+    bananaMover = setInterval(moveBanana, 3);
+    mushroomMover = setInterval(moveMush, 1);
+    console.log('kapow')
 }
+
+
+  
+
+  if (gameOver === true){
+}
+
+
 
 //this makes boo the mouse:
 $(document).on('mousemove', function(e){
 
    
 
-    if (score < 5){
+    if (score < 500){
       $('.col1').show();
     $('.col1').offset({left: e.pageX, top: e.pageY -25});
 
   }
  
-  else if (score < 10){
+  else if (score < 1000){
  
     $('.col1').remove();
     $('.col2').show();
     $('.col2').offset({left: e.pageX -15, top: e.pageY -15}); 
   }
-  else if (score < 15){
+  else if (score < 1500){
     $('.col2').remove();
     $('.col3').show();
     $('.col3').offset({left: e.pageX -15, top: e.pageY -15}); 
